@@ -1,4 +1,7 @@
-/* Reset et Variables */
+/* ============================================
+   RESET ET VARIABLES CSS
+   ============================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,25 +9,31 @@
 }
 
 :root {
-    --primary: #667eea;
-    --primary-dark: #5568d3;
-    --secondary: #764ba2;
+    --primary: #ff8c42;
+    --primary-dark: #e67a32;
+    --primary-light: #ffa366;
+    --secondary: #ff6b35;
     --success: #10b981;
+    --success-dark: #059669;
     --danger: #ef4444;
+    --danger-dark: #dc2626;
     --warning: #f59e0b;
-    --dark: #1f2937;
-    --gray: #6b7280;
-    --light-gray: #f3f4f6;
+    --warning-dark: #d97706;
+    --dark: #2d3748;
+    --gray: #718096;
+    --light-gray: #f7fafc;
     --white: #ffffff;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-    --border-radius: 12px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --shadow-strong: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --border-radius-small: 6px;
     --transition: all 0.3s ease;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #fafafa;
     min-height: 100vh;
     padding: 20px;
     line-height: 1.6;
@@ -32,29 +41,114 @@ body {
 }
 
 .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    background: var(--white);
+    padding: 20px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 0;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Header */
-.header {
-    background: var(--white);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.header-content h1 {
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--primary);
-    font-size: 2.5rem;
-    margin-bottom: 10px;
 }
 
-.header-content p {
+.logo i {
+    font-size: 2rem;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-nav a {
+    text-decoration: none;
     color: var(--gray);
-    font-size: 1.1rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.header-nav a:hover {
+    color: var(--primary);
+}
+
+.btn-nav-primary {
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-small);
+    font-weight: 600;
+}
+
+.btn-nav-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+    background: linear-gradient(135deg, #e8f0ff 0%, #f5f0ff 100%);
+    padding: 80px 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 30px;
+}
+
+.btn-hero {
+    font-size: 1.2rem;
+    padding: 18px 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.hero-tagline {
+    color: var(--gray);
+    font-size: 0.95rem;
+    font-style: italic;
 }
 
 .btn-back {
@@ -64,29 +158,38 @@ body {
     background: var(--primary);
     color: var(--white);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius-small);
     transition: var(--transition);
     font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .btn-back:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
 }
 
-/* Alerts */
+/* ============================================
+   ALERTS
+   ============================================ */
+
 .alert {
     padding: 15px 20px;
     border-radius: var(--border-radius);
     margin-bottom: 20px;
     font-weight: 500;
     animation: slideDown 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .alert-success {
-    background: #d1fae5;
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
     color: #065f46;
     border-left: 4px solid var(--success);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
 @keyframes slideDown {
@@ -100,7 +203,10 @@ body {
     }
 }
 
-/* Main Content */
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
 .main-content {
     margin-bottom: 30px;
 }
@@ -114,25 +220,98 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .section-header h2 {
     color: var(--dark);
     font-size: 1.8rem;
+    font-weight: 700;
 }
+
+/* ============================================
+   NOTIFICATIONS
+   ============================================ */
 
 .notification {
-    color: var(--success);
+    display: none;
+    padding: 12px 20px;
+    background: var(--success);
+    color: white;
+    border-radius: var(--border-radius);
     font-weight: 600;
     font-size: 0.95rem;
+    box-shadow: var(--shadow);
+    animation: slideDown 0.3s ease;
 }
 
-/* Petitions Grid */
+.notification strong {
+    color: #fef3c7;
+    font-weight: 700;
+}
+
+.notification-new {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    animation: pulse 1s ease-in-out;
+}
+
+.btn-reload {
+    padding: 8px 15px;
+    background: var(--white);
+    color: var(--warning-dark);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-reload:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   PETITIONS GRID
+   ============================================ */
+
 .petitions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 25px;
 }
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.empty-state p:first-child {
+    font-size: 1.5rem;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+/* ============================================
+   PETITION CARD
+   ============================================ */
 
 .petition-card {
     background: var(--white);
@@ -141,6 +320,34 @@ body {
     box-shadow: var(--shadow);
     transition: var(--transition);
     position: relative;
+    overflow: hidden;
+}
+
+.badge-sign {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--success);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+.petition-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
 .petition-card:hover {
@@ -148,25 +355,40 @@ body {
     box-shadow: var(--shadow-hover);
 }
 
+.petition-card:hover::before {
+    transform: scaleX(1);
+}
+
 .petition-card.top-petition {
     border: 3px solid #ffd700;
     background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
 }
 
 .petition-card.top-petition::before {
+    background: linear-gradient(90deg, #ffd700 0%, #ffed4e 100%);
+    height: 4px;
+    transform: scaleX(1);
+}
+
+.petition-card.top-petition::after {
     content: '⭐ Plus populaire';
     position: absolute;
     top: -12px;
     right: 20px;
-    background: #ffd700;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
     color: var(--dark);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: bold;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
 }
 
-/* Petition Header */
+/* ============================================
+   PETITION HEADER
+   ============================================ */
+
 .petition-header {
     display: flex;
     justify-content: space-between;
@@ -180,6 +402,7 @@ body {
     font-size: 1.4rem;
     flex: 1;
     line-height: 1.3;
+    font-weight: 700;
 }
 
 .badge {
@@ -188,7 +411,7 @@ body {
     padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.9rem;
-    font-weight: bold;
+    font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -199,14 +422,18 @@ body {
     padding: 8px 18px;
     border-radius: 25px;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-/* Petition Content */
+/* ============================================
+   PETITION CONTENT
+   ============================================ */
+
 .petition-description {
     color: var(--gray);
     margin-bottom: 15px;
     line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 .petition-meta {
@@ -219,19 +446,26 @@ body {
 .meta-item {
     font-size: 0.9rem;
     color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .deadline {
-    background: #fef3c7;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
     color: #92400e;
     padding: 10px 15px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-small);
     margin-bottom: 15px;
     font-weight: 600;
     font-size: 0.95rem;
+    border-left: 4px solid var(--warning);
 }
 
-/* Card Actions */
+/* ============================================
+   CARD ACTIONS (BUTTONS)
+   ============================================ */
+
 .card-actions {
     display: flex;
     gap: 10px;
@@ -241,7 +475,7 @@ body {
 .btn {
     padding: 12px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius-small);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -255,11 +489,19 @@ body {
 .btn-primary {
     background: var(--primary);
     color: var(--white);
+    border: none;
+    box-shadow: 0 2px 4px rgba(255, 140, 66, 0.2);
+    font-weight: 600;
 }
 
 .btn-primary:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 140, 66, 0.3);
+}
+
+.btn-primary i {
+    margin-right: 5px;
 }
 
 .btn-secondary {
@@ -269,6 +511,8 @@ body {
 
 .btn-secondary:hover {
     background: #e5e7eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-large {
@@ -277,7 +521,10 @@ body {
     font-size: 1.1rem;
 }
 
-/* Signatures Zone */
+/* ============================================
+   SIGNATURES ZONE
+   ============================================ */
+
 .signatures-zone {
     margin-top: 20px;
     padding-top: 20px;
@@ -295,6 +542,7 @@ body {
 .signatures-header h4 {
     color: var(--primary);
     font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .loading {
@@ -312,15 +560,18 @@ body {
 .signature-item {
     background: var(--light-gray);
     padding: 12px 15px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-small);
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: var(--transition);
+    border-left: 3px solid transparent;
 }
 
 .signature-item:hover {
     background: #e5e7eb;
+    border-left-color: var(--primary);
+    transform: translateX(5px);
 }
 
 .signature-info {
@@ -332,6 +583,7 @@ body {
 .signature-name {
     color: var(--dark);
     font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .signature-country {
@@ -352,13 +604,33 @@ body {
     font-style: italic;
 }
 
-/* Petition Detail Card */
+.no-signatures.error {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+/* ============================================
+   PETITION DETAIL CARD
+   ============================================ */
+
 .petition-detail-card {
     background: var(--white);
     padding: 30px;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.petition-detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary);
 }
 
 .detail-header {
@@ -373,12 +645,15 @@ body {
     color: var(--primary);
     font-size: 2rem;
     flex: 1;
+    font-weight: 700;
+    line-height: 1.3;
 }
 
 .detail-description {
     color: var(--gray);
     line-height: 1.8;
     margin-bottom: 20px;
+    font-size: 1rem;
 }
 
 .detail-meta {
@@ -386,13 +661,21 @@ body {
     gap: 25px;
     flex-wrap: wrap;
     padding-top: 15px;
-    border-top: 2;
-    border-top : 2px solid var(--light-gray);
+    border-top: 2px solid var(--light-gray);
     font-size: 0.95rem;
     color: var(--gray);
 }
 
-/* Form Card */
+.detail-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ============================================
+   FORM CARD
+   ============================================ */
+
 .form-card {
     background: var(--white);
     padding: 30px;
@@ -405,9 +688,13 @@ body {
     color: var(--primary);
     font-size: 1.6rem;
     margin-bottom: 25px;
+    font-weight: 700;
 }
 
-/* Form Styles */
+/* ============================================
+   FORM STYLES
+   ============================================ */
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -430,7 +717,7 @@ body {
     width: 100%;
     padding: 12px 15px;
     border: 2px solid #e5e7eb;
-    border-radius: 8px;
+    border-radius: var(--border-radius-small);
     font-size: 1rem;
     transition: var(--transition);
     font-family: inherit;
@@ -448,28 +735,78 @@ body {
     color: var(--gray);
 }
 
-/* Messages */
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.form-group input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #e5e7eb;
+    background: var(--light-gray);
+    cursor: pointer;
+}
+
+.form-group input[type="file"]:hover {
+    border-color: var(--primary);
+    background: #fff;
+}
+
+.form-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: var(--gray);
+    font-style: italic;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: inherit;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.1);
+}
+
+/* ============================================
+   MESSAGES
+   ============================================ */
+
 .message {
     padding: 15px 20px;
     border-radius: var(--border-radius);
     margin-bottom: 20px;
     font-weight: 500;
     animation: slideDown 0.3s ease;
+    border-left: 4px solid;
 }
 
 .message.success {
-    background: #d1fae5;
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
     color: #065f46;
-    border-left: 4px solid var(--success);
+    border-left-color: var(--success);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
 .message.error {
-    background: #fee2e2;
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
     color: #991b1b;
-    border-left: 4px solid var(--danger);
+    border-left-color: var(--danger);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
 }
 
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
+
 .footer {
     background: var(--white);
     padding: 20px;
@@ -477,16 +814,92 @@ body {
     box-shadow: var(--shadow);
     text-align: center;
     color: var(--gray);
+    font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+
+.spinner {
+    border: 3px solid var(--light-gray);
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.petition-card {
+    animation: fadeIn 0.5s ease;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
 @media (max-width: 768px) {
     body {
         padding: 10px;
     }
 
-    .header-content h1 {
-        font-size: 1.8rem;
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .header-nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .btn-hero {
+        font-size: 1rem;
+        padding: 15px 30px;
     }
 
     .petitions-grid {
@@ -507,8 +920,16 @@ body {
         gap: 10px;
     }
 
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
     .detail-header {
         flex-direction: column;
+    }
+
+    .detail-header h2 {
+        font-size: 1.5rem;
     }
 
     .detail-meta {
@@ -516,38 +937,313 @@ body {
         gap: 8px;
     }
 
-    .petition-card.top-petition::before {
+    .petition-card.top-petition::after {
         font-size: 0.75rem;
         padding: 4px 10px;
+        top: -10px;
+        right: 10px;
+    }
+
+    .signature-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .signature-date {
+        font-size: 0.8rem;
+    }
+
+    .notification-new {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-reload {
+        width: 100%;
+        margin-top: 10px;
     }
 }
 
-/* Animations */
-@keyframes fadeIn {
+@media (max-width: 480px) {
+    .header {
+        padding: 20px;
+    }
+
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .petition-card,
+    .petition-detail-card,
+    .form-card {
+        padding: 20px;
+    }
+
+    .petition-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .badge {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .header,
+    .footer,
+    .card-actions,
+    .btn-back,
+    .notification {
+        display: none;
+    }
+
+    .petition-card,
+    .petition-detail-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+}
+
+/* ============================================
+   DARK MODE (OPTIONNEL - BONUS)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    /* Si tu veux ajouter un mode sombre automatique */
+    /* Décommenter si besoin
+    body {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    }
+
+    .header,
+    .petition-card,
+    .petition-detail-card,
+    .form-card {
+        background: #374151;
+        color: #f9fafb;
+    }
+
+    .petition-header h3,
+    .detail-header h2,
+    .form-card h3 {
+        color: var(--primary-light);
+    }
+    */
+}
+
+/* ============================================
+   SCROLLBAR PERSONNALISÉE (OPTIONNEL)
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+}
+
+/* ============================================
+   SÉLECTION DE TEXTE
+   ============================================ */
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--primary);
+    color: white;
+}
+
+/* Header actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Textarea */
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: inherit;
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Success message for new petition */
+.alert-success-petition {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    color: #065f46;
+    border-left: 4px solid var(--success);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+/* ============================================
+   ZONE DES SIGNATURES RÉCENTES
+   ============================================ */
+
+.recent-signatures-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.recent-signatures-card h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recent-signatures-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recent-signature-item {
+    background: var(--light-gray);
+    border-radius: var(--border-radius-small);
+    padding: 15px;
+    border-left: 3px solid var(--primary);
+    transition: var(--transition);
+    animation: slideIn 0.3s ease;
+}
+
+.recent-signature-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signature-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.signature-info i {
+    color: var(--success);
+    font-size: 1.2rem;
+}
+
+.signature-details {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: var(--gray);
+    padding-left: 32px;
+}
+
+.signature-details span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.signature-details i {
+    font-size: 0.85rem;
+}
+
+.loading-signatures,
+.no-signatures,
+.signatures-error {
+    text-align: center;
+    padding: 30px;
+    color: var(--gray);
+    font-size: 1rem;
+}
+
+.loading-signatures i,
+.no-signatures i {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+.signatures-error {
+    color: #dc2626;
+}
+
+.signatures-error i {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+@keyframes slideIn {
     from {
         opacity: 0;
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
-}
-
-.petition-card {
-    animation: fadeIn 0.5s ease;
-}
-
-/* Loading Spinner */
-.spinner {
-    border: 3px solid var(--light-gray);
-    border-top: 3px solid var(--primary);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    animation: spin 1s linear infinite;
-    margin: 20px auto;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
