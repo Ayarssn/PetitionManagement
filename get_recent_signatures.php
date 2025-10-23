@@ -53,4 +53,3 @@ echo json_encode([
     'signatures' => $signatures,
     'count' => count($signatures)
 ]);
-?>

@@ -91,10 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
             messageDiv.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i> Erreur de validation des données';
             messageDiv.className = 'message error';
             messageDiv.style.display = 'block';
-        } else if (urlParams.get('error') === 'captcha') {
-            messageDiv.innerHTML = '<i class="bi bi-shield-x"></i> Veuillez valider le reCAPTCHA';
-            messageDiv.className = 'message error';
-            messageDiv.style.display = 'block';
         }
     }
 });

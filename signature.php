@@ -141,8 +141,9 @@ $stmt->close();
 
     <script src="js/main.js"></script>
     <script>
+
         // ============================================
-        // CHARGEMENT DES 5 DERNIÈRES SIGNATURES
+        // CHARGEMENT DES 5 DERNIÈRES SIGNATURES (AJAX)
         // ============================================
         
         const petitionId = <?php echo $petition_id; ?>;
@@ -248,14 +249,13 @@ $stmt->close();
             setInterval(loadRecentSignatures, 10000);
         });
         
-        // Recharger après soumission réussie du formulaire
-        const originalSubmit = document.getElementById('signatureForm');
-        if (originalSubmit) {
-            originalSubmit.addEventListener('submit', function() {
-                // Recharger les signatures après 2 secondes (temps de traitement)
-                setTimeout(loadRecentSignatures, 2000);
-            });
-        }
+        // Recharger après soumission réussie du formulaire (si submit handled via AJAX)
+        // submitSignatureAjax in main.js will call window.onSignatureAdded if present.
+        window.onSignatureAdded = function(resp) {
+            // resp may include signature_id and total_signatures
+            // Reload the list quickly
+            setTimeout(loadRecentSignatures, 500);
+        };
     </script>
 </body>
 </html>

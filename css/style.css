@@ -323,6 +323,25 @@ body {
     overflow: hidden;
 }
 
+/* Image d'illustration dans la carte de pétition */
+.petition-image {
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+}
+.petition-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
 .badge-sign {
     position: absolute;
     top: 15px;
@@ -414,6 +433,19 @@ body {
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
+}
+
+/* Badge indiquant la pétition la plus populaire (petite pastille près du titre) */
+.badge-top {
+    background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-left: 12px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .badge-large {
@@ -1245,5 +1277,136 @@ textarea:focus {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Ajouts pour les formulaires de modification */
+
+/* Hero small pour les pages internes */
+.hero-small {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.hero-small h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.hero-small p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* Amélioration des alertes */
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.alert i {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.alert ul li {
+    margin: 0.25rem 0;
+}
+
+/* Boutons de formulaire côte à côte */
+.form-row.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-row.buttons .btn {
+    flex: 1;
+}
+
+/* Style pour les images dans les formulaires */
+.form-group img {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Amélioration du compteur de caractères */
+#charCount {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+/* Texte centré avec lien */
+.text-center {
+    text-align: center;
+}
+
+.text-center a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+/* Amélioration du required indicator */
+label .required {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+/* Bouton secondaire */
+.btn-secondary {
+    background-color: #6b7280;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+/* Messages de confirmation */
+.confirmation-message {
+    background: #dbeafe;
+    border: 2px solid #2563eb;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive pour les boutons multiples */
+@media (max-width: 640px) {
+    .form-row.buttons {
+        flex-direction: column;
     }
 }
